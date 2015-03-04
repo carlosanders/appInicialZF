@@ -1,0 +1,37 @@
+CREATE TABLE contato (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  nome VARCHAR(200), 
+  email CHAR(100), 
+  foto BLOB
+  );
+
+
+
+select * 
+from datagrid
+where status = :status
+and attr1 = :atribute
+
+CREATE TABLE [telefone] (
+  [id] INTEGER(11) NOT NULL, 
+  [id_contato] INTEGER(11) NOT NULL, 
+  [ddd] CHAR(5), 
+  [telefone] VARCHAR(12), 
+  CONSTRAINT [sqlite_autoindex_telefone_1] PRIMARY KEY ([id]) ON CONFLICT ROLLBACK);
+
+
+
+INSERT INTO estado (uf, nome)
+VALUES ( 'RJ', 'Rio de Janeiro'),
+( 'SP', 'São Paulo'),
+( 'Es', 'Espirito Santo'),
+( 'MS', 'Mato Grosso do Sul'),
+( 'MG', 'Minas Gerais'),
+( 'BA', 'Bahia'),
+( 'AC', 'Acre')
+;
+
+INSERT INTO telefone (id_contato, ddd, telefone)
+VALUES ( 2, '021', '2146-3809'),
+( 2, '021', '99543-6672')
+;
