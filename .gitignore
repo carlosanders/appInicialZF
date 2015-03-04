@@ -6,3 +6,4 @@ nbproject
 .buildpath
 logs
 /public_html/excel/
+!/public_html/common/library/
