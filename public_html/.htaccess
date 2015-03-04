@@ -1,0 +1,12 @@
+RewriteEngine On
+
+#usado quando nao esta na raiz do projeto
+#RewriteBase /appexemplomvc/public_html/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s
+
+#RewriteRule ^painel/(.*)$ index.php?pg=$1 [PT,L] [OR]
+#RewriteRule ^site/(.*)$ index.php?pg=$1 [PT,L]
+RewriteRule ^(.*)$ index.php?pg=$1 [PT,L]

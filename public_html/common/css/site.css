@@ -1,0 +1,402 @@
+/* inicio config site interno*/
+/* 
+    Document   : siscr
+    Created on : 09/07/2012, 14:09:12
+    Author     : sg anders
+    Description: Layout do sistema siseventos
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #F8F8F8;
+    /*background-color: #FFF;*/
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+/*Corpo da página*/
+div#boxEsquerdo{
+    float: left;
+    width: 35%;
+    height: 275px;
+    border-right: 1px solid #CCC;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+div#boxDireito{
+    float: right;
+    width: 60%;
+    height: auto;
+    /*border: 1px solid #CCC;*/
+}
+
+#geral{
+    background-color: #FFF;  
+    width: 800px;
+    height: auto;
+    /*border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-bottom:1px solid #CCC;*/
+    margin-left: -400px;
+    left: 50%;
+    position:absolute;
+}
+
+#principal{
+    width: 670px;
+/*    border: 1px #ff0033 solid;*/
+}
+
+/*Banner Topo*/
+#banner-topo{
+/*    display: table;*/
+    width: 800px;
+    height: 135px;
+    position: relative;
+    clear: both;
+    background-repeat: no-repeat;
+    background-image: url(../imagens/banner-original.jpg);
+}
+
+#box-topo-logo{
+    width: 130px;
+    height: 135px;
+    float: right;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-image: url(../imagens/logo-web.png);
+/*    background-color: #CCC;*/
+}
+
+#box-topo-empresa{
+    width: 430px;
+    height: 20px;
+    float: right;
+    margin-right: 1px;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: right;
+    padding-right: 3px;
+    font-weight: bold;
+    color: #09C;
+/*    background-color: #ff0033;*/
+    border-bottom: 1px #CCC solid;
+    display: table;
+    vertical-align: middle;
+/*    line-height: 35px;*/
+    font-style: italic;
+}
+#box-topo-pensamento{
+/*    clear: both;*/
+    float: right;
+    margin-right: 1px;
+    width: 430px;
+    height: 18px;
+    display: table;
+    vertical-align: middle;
+    line-height: 15px;
+    text-align: right;
+    padding-right: 3px;
+    color: #09C;
+/*    background-color: #09C;*/
+    
+}
+
+#box-topo-nome_sistema{
+    width: 300px;
+    height: 20px;
+    float: left;
+    line-height: 20px;
+    margin-left: 3px;
+    color: #0E2D5F;
+/*    background-color: #09C;*/
+}
+
+/*Saudação*/
+#saudacao{
+    width: 800px;
+    height: 28px;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    
+    clear: both;
+    margin-left: 0px;
+}
+
+#text-saudacao{
+	margin-top: 2px;
+    padding: 0px;
+    line-height: 28px;
+    text-align: left;
+    font-size: 11px;
+    color: #0b77b7;
+    margin-right: 5px;
+    font-weight: bold;
+    width: 650px;
+    float: left;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+#box-sistema{
+    margin-top: 2px;
+    margin-right: 1px;
+    float: right;
+    padding: 2px;
+    /*border: 1px solid #CCC;*/
+    background-color: #EEE;
+    width: 135px;
+    border-radius: 0.6em;
+    -moz-border-radius: 0.6em;
+    -webkit-border-radius: 0.6em;
+    -ms-border-radius: 0.6em;
+}
+
+span.text-sistema{
+    margin-left: 5px;
+}
+
+#main{
+    width: 800px;
+    height: auto;
+    clear:both;
+}
+
+/*Navegação*/
+#navegacao{
+    float: left;
+    background-color: #FFF; 
+    width: 180px;
+    height: 1300px;
+    border-right: 1px solid #CCC;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+ul{
+    list-style-type:none;
+}
+
+ul#menu li{
+    position: relative;
+    list-style-type:none;
+}
+
+.list-menu{
+    /*background-color: #FFF;*/
+    border-top: 1px solid #CCC;
+    /*border-bottom: 1px solid #CCC;*/
+    height: 50px;
+    /*box-shadow: inset 1px 1px 1px #FFFFFF;*/
+    text-align: left;
+    line-height: 50px;
+    display:block;
+    padding-left: 5px;
+    /*border-right: 1px solid #666;*/
+    cursor: pointer;
+}
+
+.list-menu:hover{
+    background: #EEE /*url(../img/bulletseta.png) no-repeat right*/;
+    border-top: 1px solid #CCC;
+    height: 50px;
+    /*box-shadow: inset 1px 1px 3px #FFFFFF;*/
+    text-align: left;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.list-menu-last{
+    /*background-color: #FFF;*/
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    /*border-bottom: 1px solid #CCC;*/
+    height: 50px;
+    /*box-shadow: inset 1px 1px 1px #FFFFFF;*/
+    text-align: left;
+    line-height: 50px;
+    display:block;
+    padding-left: 5px;
+    /*border-right: 1px solid #666;*/
+    cursor: pointer;
+}
+
+.list-menu-last:hover{
+    background: #EEE /*url(../img/bulletseta.png) no-repeat right*/;
+    border-top: 1px solid #CCC;
+    height: 50px;
+    /*box-shadow: inset 1px 1px 3px #FFFFFF;*/
+    text-align: left;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+a.link-menu{
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+a.link-menu:hover{
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+li ul#submenu{
+    position: absolute;
+    left: 181px;
+    top: 0px;
+    display: none;
+    width: 200px;
+    background-color:#FFF;
+    z-index: 5;
+}
+
+li:hover ul#submenu{
+    display: block;
+}
+
+a.link-submenu{
+    margin: 0px 0px 0px 0px;
+    border-bottom: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    text-align: left;
+    padding: 5px;
+    color: #999;
+    text-decoration:none;
+    font-size: 13px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    list-style-type: none;
+
+}
+
+a.link-submenu:hover{
+    margin: 0px 0px 0px 0px;
+    border-bottom: 1px solid #CCC;
+    text-align: left;
+    padding: 5px;
+    color: #999;
+    text-decoration:none;
+    font-size: 13px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    list-style-type: none;
+    background-color: #EEE;
+}
+/*Conteúdo*/
+#conteudo{
+    float: left;
+    width: 600px;
+    height: 100%;
+    margin: 1px 5px 10px 5px;
+    padding: 4px 4px 5px 4px;
+    font-size: 12px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+/*Conteúdo sem menu*/
+#conteudoSMenu{
+    float: left;
+    width: 785px;
+    height: 100%;
+    margin: 1px 5px 10px 5px;
+    padding: 4px 4px 5px 4px;/*top right bottom left*/
+    font-size: 12px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+/*    background-color: #CCC;*/
+}
+#conteudoTPL{
+    float: left;
+    width: 775px;
+    height: 100%;
+    font-size: 12px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#resultadoTPL{
+    width: 780px;
+    display: none;
+}
+/* diversos */
+.erro{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 09pt;
+    color: #ff0033;
+}
+hr{
+    height:1px;
+    border-width:0;
+    background: transparent url(../imagens/bgLinha.png) center no-repeat;
+    opacity: 0.6;
+}
+h5{
+    color: #666;
+    font-size: 12px;
+}
+h2{
+    color: #333333;
+    font-size: 14px;
+
+}
+
+/*Rodapé*/
+#rodape{
+    width: 795px;
+    height: 40px;
+    border-top: 1px solid #CCC;
+    clear: both;
+    position: relative;
+    margin: 2px;
+    text-align: center;
+}
+
+.text-rodape{
+    color: #09C;
+    text-align: center;
+    padding: 2px;
+    margin-right: 5px;
+    line-height:15px;
+    /*width: 350px;
+    float: right;
+    */
+}
+.text-rodape-esq{
+    color: #09C;
+    text-align: left;
+    padding: 2px;
+    margin-right: 5px;
+    line-height:27px;
+    width: 350px;
+    float: left;
+}
+#btn{
+    margin-left: 150px;
+    width: 180px;
+    text-align: left;
+}
+#dialog-message{
+    padding: 5px 5px 5px 5px;
+}
+h2#dialog-box{
+    margin-top: -20px;
+}
+#ck_all{
+    margin-left: 5px;
+    margin-top: 3px;
+}
+.clear {clear:both;}
+
+h3 {
+    float:none; 
+    margin-top:1px; 
+    color:#006699;
+}

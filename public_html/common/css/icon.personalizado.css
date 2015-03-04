@@ -1,0 +1,30 @@
+.icon-login{
+    background:url('../icones/lock-1.png') no-repeat;
+}
+.icon-excel{
+    background:url('../icones/excel.png') no-repeat -5px;        
+}
+.icon-xls{
+    background:url('../icones/xls-icon.png') no-repeat;        
+}
+.icon-xls16{
+    background:url('../icones/xls.png') no-repeat;        
+}
+.icon-xls1{
+    background:url('../icones/xls.png') no-repeat;        
+}
+.icon-pdf{
+    background:url('../icones/pdf.png') no-repeat -5px;
+}
+
+/*rescrevendo icones do thema jQuery EasyUI*/
+.icon-remove{
+	background:url('../icones/delete.gif') no-repeat center center;
+}
+
+.icon-remove{
+    background:url('../icones/delete.gif') no-repeat;
+}
+.icon-reload{
+    background:url('../icones/reload.png') no-repeat;
+}

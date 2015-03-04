@@ -1,0 +1,73 @@
+/* inicio config site interno*/
+body {
+    margin:0; 
+    padding:0;
+    background:#ffffff;
+    color:#666;
+    font:75%/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align:center;
+}
+#tudo { 
+    /*width:760px;*/
+    position:relative;  /*Contexto de posicionamento 
+    background:#fff url(bg-auxiliar.gif) repeat-y right;*/
+    margin:0 auto;
+    text-align:left;
+    min-height:100%;
+    /*
+    border:dotted #999;
+    border-width:0 1px;
+    */
+}
+* html #tudo {height: 100%;}
+#topo {
+    background: url(../imagens/banner-dpmm2-fundo.png);
+    /*width:760px;
+    border-bottom:1px dotted #999;*/
+    height:90px;    
+    /*text-align:center;*/
+    padding-top:1px;
+    z-index: 4;
+    margin: 0;
+}
+#logo
+{
+    width:47px; 
+    height:85px; 
+    float:left; 
+    margin-right:5px;
+}
+#principal {
+    /*width:98.5%;
+    padding-left:20px;
+    float:left;*/
+    padding-top:10px;
+    text-align:justify;
+    /*background-color: #999999;*/
+}
+#rodape {
+    background-color: #F5F5F5;
+    width:100%;
+    height:40px;
+    position: absolute;
+    bottom: 0;  
+    border-top: 1px solid #E5E5E5;
+    border-width: 1px 0;
+    text-align:center;
+}
+#rodape p {
+    margin:0;
+    /*
+    font-weight:bold;
+    color:#060;
+    */
+}
+
+.clear {clear:both;}
+
+.container h4 {
+    float:none; margin-top:18px; color:#006699;
+}
+.container h4 small{
+    color:#006699;
+}
