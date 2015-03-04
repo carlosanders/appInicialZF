@@ -1,0 +1,28 @@
+RewriteEngine On
+<FilesMatch "\.(htm|html|css|js)$">
+AddDefaultCharset UTF-8
+</FilesMatch>
+# Prevent Direct Access to files
+<FilesMatch "\.(tpl|ini|log)">
+ Order deny,allow
+ Deny from all
+</FilesMatch>
+
+#<FilesMatch "^index\.html$">
+#	Header set Cache-Control: "no-cache, must-revalidate"
+#</FilesMatch>
+
+#<IfModule mod_expires.c>
+#   ExpiresActive Off
+#</IfModule>
+#<IfModule mod_headers.c>
+#	Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+#</IfModule>
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+
+#usado quando nao esta na raiz do projeto
+#RewriteBase /appexemplomvc/
+
+RewriteRule ^(.*)$ public_html/$1 [NC,L]
