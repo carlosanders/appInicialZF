@@ -1,0 +1,89 @@
+<?php
+$config = ($this->getConfigs());
+$esyui = (!isset($config->theme->easyui)) ? 'default' : $config->theme->easyui;
+$esyui = ($esyui == "") ? "default" : $esyui;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title><?php echo $config->titulo; ?></title> 
+            <meta name='keywords' content="<?php echo $config->keywords; ?>" lang="pt" />
+            <meta name="description" content="<?php echo $config->description; ?>" lang="pt" />
+            <meta name='url' content="<?php echo $config->webhost; ?>" />		
+            <meta name='author' content="<?php echo $config->author ?>" />
+            <meta name='distribution' content='web' />
+            <meta name='copyright' content="<?php echo $config->copyright; ?>" />
+            <meta name='robots' content='ALL' />
+            <meta name='reply-to' content="<?php echo $config->reply_to; ?>" />
+            <meta name='company' content="<?php echo $config->company; ?>" />
+            
+            <link rel="shortcut icon" href="<?php echo $config->path; ?>common/imagens/favicon.ico" /> 
+            
+            <!--CSS - do jQueryUI para o sistema nao mexer -->
+            <link rel="stylesheet" href="<?php echo $config->path; ?>common/library/jquery-ui-1.9.1/jquery-ui-1.9.1.custom.css" />   
+            <link rel="stylesheet" type="text/css" href="<?php echo $config->path; ?>common/library/jquery-alerts/jquery.alerts.css" />  
+            
+            <link rel="stylesheet" type="text/css" href="<?php echo $config->path; ?>common/library/jquery-easyui-1.4.1/themes/<?php echo $esyui; ?>/easyui.css" />
+            <link rel="stylesheet" type="text/css" href="<?php echo $config->path; ?>common/library/jquery-easyui-1.4.1/themes/icon.css" />
+            
+            <link rel="stylesheet" type="text/css" href="<?php echo $config->path; ?>common/css/icon.personalizado.css" />
+            
+            <link href="<?php echo $config->path; ?>common/css/bootstrap.personalizado.css" rel="stylesheet" media="screen" />
+            <!-- CSS personalizado do seu site -->
+            <link rel="stylesheet" type="text/css" href="<?php echo $config->path; ?>common/css/site.css" />
+            <link rel="stylesheet" type="text/css" href="<?php echo $config->path; ?>common/css/forms.css" />
+            
+            
+            <!-- JS plugins e frameworks -->
+            <script src="<?php echo $config->path; ?>common/library/plugins/jquery-1.8.3.js"></script>  
+            <script src="<?php echo $config->path; ?>common/library/jquery-ui-1.9.1/jquery-ui-1.9.1.custom.js"></script>
+            <script src="<?php echo $config->path; ?>common/library/jquery-alerts/jquery.alerts.js"></script>            
+            <script src="<?php echo $config->path; ?>common/library/plugins/jquery.maskedinput.js"></script>
+            <script src="<?php echo $config->path; ?>common/library/plugins/jquery.epiclock.min.js"></script>            
+            <script src="<?php echo $config->path; ?>common/library/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+            <script src="<?php echo $config->path; ?>common/library/jquery-easyui-1.4.1/locale/easyui-lang-pt_BR.js"></script>            
+            
+            <!-- Personalizados -->
+            <script src="<?php echo $config->path; ?>common/library/helper/helper.js"></script>
+            <script src="<?php echo $config->path; ?>common/library/helper/extensaoValidacaoEasyUI.js"></script>
+            <script src="<?php echo $config->path; ?>common/js/site.interno.js"></script>
+            <script src="<?php echo $config->path; ?>common/js/listarMilitares.js"></script>
+            <script src="<?php echo $config->path; ?>common/js/main.semtoporodape.js"></script>
+            <script src="<?php echo $config->path; ?>common/js/produto.listarProduto.js"></script>
+            
+            
+    </head>
+    <body>
+        <!--Corpo geral da página-->   
+        <div id="geral">
+            <!--Banner Topo--> 
+            <div id="banner-topo">
+                <div id="box-topo-logo"></div>
+                <div id="box-topo-empresa">
+                    <p><?php echo $config->company; ?></p>
+                </div>
+                <div id="box-topo-pensamento">
+                    <p>"<?php echo $config->pensamento; ?>" <?php echo $config->autor->pensamento; ?></p>
+                </div>
+                <div id="box-topo-nome_sistema">
+                    <p><?php echo $config->sistema; ?></p>
+                </div>                
+            </div>
+            <!--Box de Boas Vindas-->
+            <div id="saudacao">
+                <h5 id="text-saudacao">
+                    &nbsp;<img src="<?php echo $config->path; ?>common/imagens/icone_bullet.png" border="0" align="" />&nbsp;<?php echo $config->sobre; ?>&nbsp;- perfil
+                </h5>                                
+                <div id="box-sistema" style="width: 108px">
+                    <span class="text-sistema">
+                        <a id="link-text-sistema" title="Dúvidas Frequentes" target="_blank" href="http://www.dpmm.mb/sites/default/files/duvidas_siseventos_1.pdf"><img src="<?php echo $config->path; ?>common/imagens/list_big.png" width="18" border="0" align="absbottom" /></a></span>
+                    <span class="text-sistema">
+                        <a id="link-text-sistema" title="Manual do Sistema" target="_blank" href="http://www.dpmm.mb/sites/default/files/Manual_Sistema_Eventos_OM.pdf"><img src="<?php echo $config->path; ?>common/imagens/icon1_small.png" width="18" border="0" align="absbottom" /></a></span>
+                    <span class="text-sistema">
+                        <a id="link-text-sistema" title="Sobre o Sistema" href="#"><img src="<?php echo $config->path; ?>common/imagens/certificate.png" width="18" border="0" align="absbottom" /></a></span>
+                    <span class="text-sistema">
+                        <a id="link-text-sistema" title="Sair do Sistema" href="#"><img src="<?php echo $config->path; ?>common/imagens/power.png" width="18" border="0" align="absbottom" /></a></span>
+                </div>
+            </div>

@@ -1,0 +1,35 @@
+<?php
+$v_params = $this->getParams();
+$o_erro = $v_params['o_erro'];
+$erro_pilha = $v_params['erro_pilha'];
+//var_dump($erro_pilha);
+?>
+<!-- content -->
+<div id="#conteudoSMenu">
+    <div class="centraliza">            
+        <h1 id="h1_style" style="text-align: center; font-size: 1.2em; text-align: left;">  
+            <span style="color: #FF0000; text-align: left">Erro: </span><br />
+        </h1>
+        <?php echo $o_erro ?>
+        <br/>
+        <?php if ($config->erro->pilha) { ?>
+            <h1 id="h1_style" style="text-align: center; font-size: 1.2em; text-align: left;">
+                <span style="color: #0000cc; text-align: left">Pilha: </span><br />
+            </h1>
+            <?
+            $pilha = explode("#", $erro_pilha);
+            //var_dump($pilha);
+            foreach ($pilha as $v) {
+                if ($v != '')
+                    echo "<span style=\"color: #FF0000; text-align: left\">#{$v} </span><br />";
+            }
+        }
+        ?>
+        <br />
+    </div>
+</div>
+
+
+
+
+

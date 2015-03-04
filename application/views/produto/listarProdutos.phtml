@@ -1,0 +1,122 @@
+<?php
+$params = $this->getParams();
+$config = ($this->getConfigs());
+?>
+<!-- content -->
+<div id="conteudoSMenu">   
+
+    <h3 style="font-size: 14pt; margin: 0 0 3px 0;">
+        <?= $params['titulo'] ?> <br />
+        <small><?= $params['subtitulo'] ?> </small>
+    </h3>    
+    <hr />
+    <br />
+    <?php
+    echo "Controlador requerido: <strong>" . Application::getControlador() . "</strong><br />";
+    echo "Ação chamada: <strong>" . Application::getAcao() . "</strong>";
+    ?>    
+    <br /><br />
+    <fieldset class="ui-widget-content ui-corner-all" style="width: 780px;height:auto; padding: 3px;">
+        <legend> Cadastrar Novo Produto </legend>
+        <form id="frmProduto" method="POST">
+            <div class="classeDiv">
+                <div class="box-esquerdo">
+                    <label for="inptCodProd" class="lb2Lado">Código do Produto: </label>
+                    <input id="inptCodProd" name="inptCodProd" class="easyui-numberbox" style="width:240px;"
+                           data-options="required:false"/>
+                </div>
+                <div class="box-direito">
+                    <label for="inptPrecoAnt" class="lb2Lado-dir">Preço Anterior: </label>
+                    <input id="inptPrecoAnt" name="inptPrecoAnt" class="easyui-numberbox" precision="2" style="width:240px;" />
+                </div>
+            </div>
+            <div class="classeDiv">
+                <div class="box-esquerdo">
+                    <label for="inptPrecoAtual" class="lb2Lado">Preço Atual: </label>
+                    <input id="inptPrecoAtual" name="inptPrecoAtual" class="easyui-numberbox" precision="2" style="width:240px;" />
+                </div>
+                <div class="box-direito">
+                    <label for="inptDescricao" class="lb2Lado-dir">Descrição Produto: </label>
+                    <input id="inptDescricao" name="inptDescricao" class="easyui-textbox" data-options="prompt:'Digite a descrição...'" style="width:240px;">
+                </div>
+            </div>
+            <div class="classeDiv">
+                <div class="box-esquerdo">
+                    <label for="cbCategoria" class="lb2Lado-dir">Categoria BD: </label>
+                    <select id="cbCategoria" class="easyui-combobox" name="cbCategoria" style="width:240px;"
+                            data-options="
+                            valueField: 'ID',
+                            textField: 'DESCRICAO',
+                            required:true,
+                            url:'<?php echo $config->path; ?>apoio/comboboxCategoria'
+                            "
+                            >       
+                    </select>
+                </div>
+                <div class="box-direito">
+                    <label for="status" class="lb2Lado">Status Produtos: </label>
+                    <select id="status" class="easyui-combobox" name="status" style="width:240px;"
+                            data-options="required:true">
+                        <option value="P">Ponta</option>
+                        <option value="E">Estoque</option>
+                        <option value="F">Falta</option>
+                    </select>
+                </div>
+            </div>
+            <div class="classeDiv">
+                <div class="box-esquerdo">
+                    <label for="cbEstados" class="lb2Lado-dir">Estados: </label>
+                    <select id="cbEstados" class="easyui-combobox" name="cbEstados" style="width:240px;"
+                            data-options="
+                            valueField: 'UF',
+                            textField: 'NOME',
+                            required:true,
+                            url:'<?php echo $config->path; ?>apoio/comboboxEstado'
+                            "
+                            >
+
+                    </select>
+                </div>
+
+            </div>
+        
+        <br />
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" onclick="salvarProduto('#frmProduto', 'produto/salvar', '#dgListarProdutos')">Salvar</a>
+        </form>
+        <br />
+        <div id="processando" style="width: 100%; height: 60px; margin-top: 10px; display: none; "></div>
+    </fieldset>
+    <br />  
+    <div class="row-fluid">
+        <table id="dgListarProdutos" class="container easyui-datagrid" title="Lista de Produtos" 
+               style="height:280px; width: 788px;"
+               data-options="singleSelect:true,
+               collapsible:true,
+               remoteSort: false,
+               url:'<?php echo $config->path; ?>main/dgExemplo',
+               fitColumns: false,
+               rownumbers: true,
+               rowStyler: rowFormater,
+               onDblClickRow:onDblClickRowDG,
+               method:'get'
+               ">
+            <thead>
+                <tr>
+                    <th data-options="field:'itemid',width:60, align:'center'" formatter="exibiAcaoDGProdutos">ações</th>
+                    <th data-options="field:'productid',width:80" sortable="true">Código</th>
+                    <th data-options="field:'listprice',width:90,align:'right'" sortable="true">Preço Anterior</th>
+                    <th data-options="field:'unitcost',width:90,align:'right'" sortable="true">Preço Atual</th>
+                    <th data-options="field:'productname',width:180" sortable="true">Descrição</th>
+                    <th data-options="field:'descricao',width:100" sortable="true">Categoria</th>
+                    <th data-options="field:'status',width:60,align:'center'" sortable="true">Status</th>
+                    <th data-options="field:'nome',width:150,align:'center'" sortable="true">UF</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <br />
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'" onclick="recarregarDadosDG('#dgListarProdutos')">Recarregar</a>
+    <a href="javascript:clearFormDadosDG('#dgListarProdutos')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" >Limpar</a>
+    <br /><br />
+
+</div> <!-- Fim da div#principal -->

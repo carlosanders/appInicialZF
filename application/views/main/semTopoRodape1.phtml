@@ -1,0 +1,161 @@
+<?php
+$params = $this->getParams();
+$config = ($this->getConfigs());
+$cbCategoria = $params['cbCategoria'];
+$cc1Fixo = $params['cc1Fixo'];
+$estadosFixo = $params['estadosFixo'];
+$cbEstados = $params['cbEstados'];
+$status = $params['status'];
+$registro = $params['registroDG'];
+
+?>
+<!-- content -->
+<div id="conteudoSMenu" style="width: 690px; height: 550px;">   
+    <div class="demo" >
+        <form name="alterarTft" method="post" id="alterararTft">
+            <fieldset class="ui-widget-content ui-corner-all" style="width: 750px;height:550px;">
+                <legend>&nbsp;Dados da Alteração&nbsp;</legend>
+                <br />                
+                <div class="classeDivBox" >
+                    <label class="lb3">&nbsp;Categoria: </label>
+                    <select id="cbCategoriaModal" class="easyui-combobox" name="cbCategoria" style="width:280px;"
+                            data-options="
+                                    valueField: 'ID',
+                                    textField: 'DESCRICAO',
+                                    url:'<?php echo $config->path; ?>apoio/comboboxCategoria/<?=$cbCategoria ?>/true'
+                                    "
+                            >
+                    </select>
+                </div>
+                <div class="classeDivBox">
+                    <label class="lb3">CC1Fixo: </label>
+                    <input class="easyui-textbox" id="elementoOrg" name="elementoOrg" value="<?=$cc1Fixo ?>"  />
+                </div>
+
+                <div class="classeDivBox" >
+                    <label class="lb3">&nbsp;Combo Estados: </label>
+                    <input id="cbEstadosModal" class="easyui-combobox" 
+                           data-options="
+                        valueField: 'UF',
+                        textField: 'NOME',
+                        onSelect:getSelectEstado,
+                        url:'<?php echo $config->path; ?>apoio/comboboxEstado/<?=$cbEstados ?>/true'
+                        ">
+                </div>
+                <div class="classeDivBox">
+                    <label class="lb3">&nbsp;Cidades: </label>
+                    <select id="cidaddessModal" class="easyui-combobox"  name="cidaddessModal" style="width:200px;"
+                            data-options="
+                                required:true,
+                                valueField: 'ID',
+                                textField: 'NOME',
+                                url:'<?php echo $config->path; ?>apoio/comboboxCidades/false/<?=$cbEstados ?>/false'
+                                "
+                            >
+                    </select>
+                </div>
+                <?php 
+                
+                foreach ($registro as $key => $value) {
+                    echo "Chave: <strong>". $key . "</strong> Valor: <strong>" .$value."</strong> <br/>";
+                }
+                
+                ?>
+<!--                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Posto: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="posto" name="posto" 
+                            data-options="valueField:'POSTO',                               
+                            textField:'DSCPOSTOGRADUACAO',
+                            panelWidth:'200',">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Corpo: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="corpo" name="corpo" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Quadro: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="quadro" name="quadro" 
+                            data-options="">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Curso Altos Estudos: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="cursoAe" name="cursoAe" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Curso de Graduação: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="cursoAe" name="cursoAe" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Curso de Espec.: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="cursoEsp" name="cursoEsp" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Curso de Aperf.: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="cursoAperf" name="cursoAperf" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Curso Extraordinário: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="cursoExt" name="cursoExt" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Habilitação: </label>
+                    <select class="easyui-combobox" style="width: 280px;" id="habilitacao" name="habilitacao" 
+                            data-options="valueField:'CODCORPO',                               
+                            textField:'CODCORPO',
+                            panelWidth:'200'
+                            ">
+                    </select>
+                </div>
+                <div class="classeDivBox" style="width: 580px;">
+                    <label class="lb3">&nbsp;Justificativa: </label>
+                    <textarea class="easyui-textbox" 
+                              data-options="multiline:true" 
+                              id="texto" 
+                              name="texto" 
+                              style="width: 300px; height:100px; font-family: Arial"></textarea>
+                </div>-->
+            </fieldset>
+        </form>
+        <div id="boxProcessando" style="display: none; width: 100%; height: 60px; margin-top: 10px;">
+            <fieldset class="ui-widget-content ui-corner-all" style="width: 690px;height:50px;">
+                <legend>&nbsp;Processando formulário&nbsp;</legend>
+            <div id="processando" style="width: 100%; height: 60px; margin-top: 10px;"></div>
+        </div>
+    </div>
+    <!-- Resultado da busca -->
+
+</div> 
+<!-- Fim da div#principal -->
+

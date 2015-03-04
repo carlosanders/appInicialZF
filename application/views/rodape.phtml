@@ -1,0 +1,21 @@
+<?php
+$params = $this->getParams();
+$config = ($this->getConfigs());
+?>
+            <!--Box Rodapé-->
+            <div id="rodape">                
+                <div class="text-rodape">
+                    <?php echo $config->rodape; ?><br />
+                    <?php echo $config->versao; ?>
+                </div>
+                
+                <div id="resultadoFiltro"></div>  
+                 <div id="dlg1"class="easyui-dialog" style="width:800px;height:650px;padding:5px"
+                     data-options="closed: true">
+                    
+                </div>                
+                <div id="dialog"></div>                
+            </div>
+        </div>
+    </body>
+</html>

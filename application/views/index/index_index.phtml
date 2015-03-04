@@ -1,0 +1,25 @@
+<?php
+$params = $this->getParams();
+$config = ($this->getConfigs());
+?>
+<!-- content -->
+<div id="conteudoSMenu">   
+    
+    <h3 style="font-size: 14pt; margin: 0 0 3px 0;">
+        Bem-Vindo ao Projeto Inicial em MVC <br />
+        <small>com a biblioteca do Zend Framework </small>
+    </h3>    
+    <hr />
+    <br />
+    <?php
+    echo "Controlador requerido: <strong>" . Application::getControlador() . "</strong><br />";
+    echo "Ação chamada: <strong>" . Application::getAcao() ."</strong>";
+    ?>    
+    <br />    
+    <h2>
+        <?php
+        echo $params['metodo'];
+        ?>
+    </h2>
+    
+</div> <!-- Fim da div#principal -->

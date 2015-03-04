@@ -1,0 +1,97 @@
+<?php
+$params = $this->getParams();
+$config = ($this->getConfigs());
+
+$acesso = $params["acesso"];
+$codOM = $params["codOM"];
+$graduacao = $params["graduacao"];
+$user = $params["user"];
+$titulo = $params["titulo"];
+
+?>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $("#nroNIP").focus();
+    });
+</script>
+<!-- content -->
+<div id="conteudoSMenu">   
+<div class="demo" >
+    <form name="listaMil" method="post" id="listaMil">
+        <fieldset class="ui-widget-content ui-corner-all">
+            <legend>&nbsp;Selecione o Filtro&nbsp;</legend>
+            <br />
+            <div class="ui-widget">
+                <div class="classeDiv">
+                    <label title="Círculos válidos na MB!" class="lb1">&nbsp;Círculo Hierárquico: </label>
+                    <div id="rad">
+                        <input id="radio1" onchange="getValor(this.value, 0);" name="divisao" value="1" type="radio" />
+                        <label for="radio1">Oficiais</label>
+                        <input id="radio2" onchange="getValor(this.value, 0);" name="divisao" value="2" type="radio" />
+                        <label for="radio2">Praças</label>
+                        <input id="radio3" onchange="getValor(this.value, 0);" name="divisao" value="3" type="radio" />
+                        <label for="radio3">Praças Especiais</label>
+                    </div>
+                </div>
+                <div class="classeDiv">
+                    <label title="Listar postos e graduções da MB!" class="lb1">&nbsp;Posto /Graduação: </label>
+                    <!--
+                    <select id="postoGraducacao"></select>
+                    -->
+                    <input class="easyui-combobox" style="width: 280px;" id="postoGraducacao" name="postoGraducacao">
+                </div>
+
+                <!--{* Se for true lista  todas as Om da Marinha 
+                * Senao lista somente a OM e a OM Subordinada se existir *}-->
+                <?php if ($acesso == "true"){ ?>   
+                <div class="classeDiv">
+                    <label title="Para listar as OM's! <br />Digite as iniciais do código da OM<br />Ex.: DP..." class="lb1">&nbsp;Sigla da OM: </label>
+                    <input class="easyui-combobox" style="width: 280px;" id="omsAtivas" name="omsAtivas">
+                </div>
+                <?php } ?>
+                <div class="classeDiv">
+                    <input type="hidden" id="codOM" name="codOM" value="<?php echo $codOM ?>" />
+                    <label class="lb1">&nbsp;NIP: </label>
+                    <input id="nroNIP" name="nroNIP" value="" placeholder="NIP" />
+                </div>
+                <div class="classeDiv">
+                    <label class="lb1">&nbsp;Nome: </label>
+                    <input id="pessoa" name="pessoa" value="" placeholder="NOME"  />
+                </div>
+                <br />
+                <div id="btn">                    
+                    <input id="userCOD" type="hidden" name="userCOD" value="286761" />
+                    <a href="javascript:;" id="btnConsulta"
+                       onclick="$(this).closest('form').submit();" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">Buscar...</a> 
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="clearForm('<?php echo $codOM ?>')">Limpar</a>
+                </div>
+            </div>
+            <br />
+        </fieldset> 
+    </form>    
+</div>
+<!-- Resultado da busca -->
+<div class="demo">
+    <fieldset class="ui-widget-content ui-corner-all">
+        <legend>&nbsp;Relação de Militares&nbsp;</legend>
+        <br />
+        <table id="dgMilitares" class="easyui-datagrid" style="width:765px;height:390px"
+               url="/index.php?pg=Main/dgMilitaresOM/<?php echo $codOM ?>/<?=$graduacao ?>&user=<?php echo $user ?>"
+               title="<?=$titulo ?>" iconCls="icon-search" toolbar="#tb"               
+               data-options="singleSelect:true,title:false,remoteSort:false"
+               rownumbers="true" pagination="true">
+            <thead>
+                <tr>
+                    <th field="CODPOSTOGRADUACAO" width="105">Posto/Graduação</th>
+                    <th field="NIPFORMATADO" width="80" align="center">NIP</th>                    
+                    <th field="NOMEGUERRA" width="115" align="left">Nome de Guerra</th>
+                    <th field="NOMPESSOA" width="255" align="left" sortable="true">Nome</th>            
+                    <th field="NOMABREVIADO" width="80" align="center">OM</th>
+                    <th field="NRONIP" width="60" align="center" formatter="formatAction">Ação</th>
+                </tr>
+            </thead>
+        </table>
+    </fieldset>   
+    <div id="resultadoFiltro"></div>           
+</div>
+</div> <!-- Fim da div#principal -->
