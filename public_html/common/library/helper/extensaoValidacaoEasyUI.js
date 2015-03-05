@@ -1,3 +1,40 @@
+
+/**
+ * Metodo para colocar o focus no easyUI
+ * @refrencia: http://www.jeasyui.com/forum/index.php?topic=3639.msg9442#msg9442
+ * uso: $('#inptCodProd').numberbox('focus');  // focar o campo
+ */
+$.extend($.fn.textbox.methods, {
+    //$('#inptCodProd').next().find('input').focus();
+    focus: function (jq) {        
+        return jq.each(function () {
+            $(this).next().find('input').focus();
+        });
+    }
+});
+
+/**
+ * Metodo para ocultar e apresentar um input ou combobox
+ * @ref.: http://www.jeasyui.com/forum/index.php?topic=4172.msg10051#msg10051
+ * @param {type} param1
+ * @param {type} param2
+ * Exemplo uso:
+ * $('#t1').textbox('hide');  // hide the textbox
+ * $('#c1').combobox('hide');  // hide the combobox
+ */
+$.extend($.fn.textbox.methods, {
+    show: function (jq) {
+        return jq.each(function () {
+            $(this).next().show();
+        });
+    },
+    hide: function (jq) {
+        return jq.each(function () {
+            $(this).next().hide();
+        });
+    }
+});
+
 //$('#WX').combobox('required', false);  // disable required validation
 //$('#WX').combobox('required');  // enable required validation
 /**

@@ -1,10 +1,14 @@
 $(document).ready(function () {
-    
+
+    //criado o metodo focus para easyUI
+    $('#inptCodProd').numberbox('focus');
+    //$('#inptCodProd').next().find('input').focus();
+
     //ao carregar a pagina desabilita a validacao
     $("#frmProduto").form("disableValidation");
 });
 
-function onDblClickRowDG(index, row) {        
+function onDblClickRowDG(index, row) {
 
     if (row) {
         $('#frmProduto').form('load', {
@@ -13,8 +17,8 @@ function onDblClickRowDG(index, row) {
             inptPrecoAtual: row.listprice,
             inptDescricao: row.productname,
             cbCategoria: row.attr1,
-            status:row.status,
-            cbEstados:row.uf_estado
+            status: row.status,
+            cbEstados: row.uf_estado
         });
     }
 
@@ -23,7 +27,7 @@ function onDblClickRowDG(index, row) {
 
 function salvarProduto(idFrm, url, idDG) {
     var iconeCarregando = retornaItemCarregando();
-    
+
     //console.log( $( idFrm ).serialize() );    
     //console.log($( idFrm ).serializeArray());
     //inica a validacao
