@@ -7,3 +7,6 @@ nbproject
 logs
 /public_html/excel/
 !/public_html/common/library/
+*.phar
+docs
+phpunit
