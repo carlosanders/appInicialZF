@@ -1,9 +1,16 @@
 <?php
 
 /**
- * Description of FireBug
+ * Classe que provê a apresentacao de uma determiada variavel 
+ * a extensão do FireBug do FireFox, desde que se tenha também
+ * a extensão do FirePHP instalado no navegador
+ * @link http://www.andershost.com.br/wordpress/2013/12/debugar-aplicacao-ajax-e-php-com-firebug-e-firephp/
  *
- * @author sg anders
+ * @example de Uso: FireBug::getInstacia()->addMensagem("Sua Mensagem", Zend_Log::INFO);
+ * No segundo parametro pode ser substituido pelos seguintes:
+ * Zend_Log::INFO | Zend_Log::ERR | Zend_Log::INFO Zend_Log::WARN
+ * 
+ * @author ANDERS
  */
 class FireBug {
 
@@ -33,6 +40,7 @@ class FireBug {
     /**
      * Para pegar um instância da classe para habilitar
      * o log pelo FireBug e FirePHP
+     * @return FireBug unica instancia da classe
      */
     public static function getInstacia() {
         if (null === self::$instacia) {
@@ -63,5 +71,3 @@ class FireBug {
     }
 
 }
-
-?>
