@@ -15,7 +15,9 @@ Site: [AndersHost][anders]
 
 Estrutura da Aplicação appInicialZF
 --------------------------------------
-A estrutura do projeto organizada em hierarquia de pastas para o correto funcionamento do sistema.
+A figura abaixo, ilustra o fluxo interno da aplicação MVC.
+
+[![AndersHost](Arquitetura.png)](http://www.andershost.com.br)
 
 Requisitos de funcionamento:
 
@@ -24,6 +26,8 @@ Requisitos de funcionamento:
 *	Módulo rewrite ativo; 
 *	Extensão PDO do PHP ativo; 
 *	Opcional: acrescentar no php.ini a linha: include_path = ".;C:/xampp/apps/ZendFramework-1.12.3/library".
+
+A estrutura do projeto organizada em hierarquia de pastas para o correto funcionamento do sistema.
 
 Diretórios RAIZ do projeto.<br />
 <pre>
